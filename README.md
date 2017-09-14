@@ -3,7 +3,7 @@ Contains approach I used and the solutions to exercises on http://www.sql-ex.ru/
 
 1. Select model, speed, hd from PC where price < 500
 
-2. select distinct maker 
+2. select distinct maker  
 from product 
 where type='Printer'
 
@@ -275,4 +275,35 @@ where laptop.speed >= 750
 24. 
 Approach: 
 1. We need to find models with highest price in all products categories. This will be a repetitive task and hence we need to make use of a cte
+Solution:
 
+with cte_model(model, HighPrice) as
+(select model, max(price) as HighPrice
+from laptop
+group by model
+
+union
+
+select model, max(price)as HighPrice
+from pc
+group by model
+
+union
+
+select model, max(price)as HighPrice
+from printer
+group by model
+)
+select model from cte_model
+where HighPrice=(select max(HighPrice) from cte_model)
+
+
+25. 
+Solution:
+select distinct maker from product 
+where type ='Printer' 
+
+intersect 
+
+select distinct maker from product inner join PC on product.model=pc.model 
+where type='PC'and  pc.speed in (select max(speed) from pc where ram=(select min(ram)from pc))and pc.ram=(select min(ram)from pc)
