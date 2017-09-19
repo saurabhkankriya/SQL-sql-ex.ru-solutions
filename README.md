@@ -1,7 +1,7 @@
 # SQL-sql-ex.ru-solutions
 ##Contains approach I used and the solutions to exercises on http://www.sql-ex.ru/
 
-1. Find the model number, speed and hard drive capacity for all the PCs with prices below $500.
+1. Find the model number, speed and hard drive capacity for all the PCs with prices below $500. 
 **Solution:**
 ```sql
 Select model, speed, hd 
@@ -15,7 +15,7 @@ where price < 500
 select distinct maker  
 from product 
 where type='Printer'
-'''
+```
 
 3. Find the model number, RAM and screen size of the laptops with prices over $1000.
 **Solution:**
@@ -72,9 +72,9 @@ on pc.model = prod.model
 where prod.maker = 'B'
 ```
 
-8. **Solution:**
+8.
+**Solution:**
 ```sql
-solution:
 select maker from product where type = 'PC'
 except
 select maker from product where type= 'Laptop'
