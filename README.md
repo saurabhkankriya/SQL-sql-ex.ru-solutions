@@ -220,7 +220,6 @@ group by speed
 
 23. Get the makers producing both PCs having a speed of 750 MHz or higher and laptops with a speed of 750 MHz or higher. 
 ```sql
-Solution:
 select product.maker 
 from product 
 inner join pc
@@ -265,5 +264,12 @@ where type ='Printer'
 intersect 
 
 select distinct maker from product inner join PC on product.model=pc.model 
-where type='PC'and  pc.speed in (select max(speed) from pc where ram=(select min(ram)from pc))and pc.ram=(select min(ram)from pc)
+where type='PC'and  
+pc.speed in 
+(select max(speed) 
+from pc 
+where ram=
+          (select min(ram)from pc))
+          and pc.ram=
+                     (select min(ram)from pc)
 ```
