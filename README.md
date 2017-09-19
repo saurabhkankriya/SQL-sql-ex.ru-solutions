@@ -1,5 +1,5 @@
 # sql-ex.ru Solutions
-## Contains SQL solutions to exercises on [sql-ex.ru] (http://www.sql-ex.ru/)
+## Contains SQL solutions to exercises on [sql-ex.ru](http://www.sql-ex.ru)
 
 1. Find the model number, speed and hard drive capacity for all the PCs with prices below $500. 
 ```sql
