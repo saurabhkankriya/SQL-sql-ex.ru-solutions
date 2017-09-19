@@ -1,13 +1,20 @@
 # SQL-sql-ex.ru-solutions
-Contains approach I used and the solutions to exercises on http://www.sql-ex.ru/
+##Contains approach I used and the solutions to exercises on http://www.sql-ex.ru/
 
-1. Select model, speed, hd from PC where price < 500
+1. Find the model number, speed and hard drive capacity for all the PCs with prices below $500.
+Solution:
+Select model, speed, hd 
+from PC 
+where price < 500
 
-2. select distinct maker  
+2. List all printer makers.
+Solution:
+select distinct maker  
 from product 
 where type='Printer'
 
-3. Select model, ram, screen
+3. Find the model number, RAM and screen size of the laptops with prices over $1000.
+Select model, ram, screen
 from laptop
 where price > 1000
 
@@ -18,11 +25,7 @@ where color = 'y'
 from PC
 where price < 600 and  (cd = '12x' or cd= '24x')
 
-6. Approach: 
-1. First query the laptop table to find model and speed that have capacity greater than or equal to 10.
-select model, speed from laptop
-where hd>= 10.0
-2. Take a look at database architecture. There is a join on 'model' between the product and the laptop table. Use the maker from the product table using join on the model id:
+6. 
 
 Solution: 
 Select distinct p.maker, speed 
