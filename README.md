@@ -266,10 +266,12 @@ intersect
 select distinct maker from product inner join PC on product.model=pc.model 
 where type='PC'and  
 pc.speed in 
-(select max(speed) 
-from pc 
-where ram=
-          (select min(ram)from pc))
-          and pc.ram=
+          (select max(speed) 
+           from pc 
+           where ram=
                      (select min(ram)from pc)
+           )
+ and pc.ram=
+             (select min(ram)
+              from pc)
 ```
