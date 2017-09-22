@@ -302,3 +302,13 @@ where maker in
 (select maker from product where type='Printer')
 group by product.maker
 ```
+28. Using Product table, find out the number of makers who produce only one model.
+```sql
+select count(*)
+from
+(select maker
+from product
+group by maker
+having count(model)=1
+) as res
+```
